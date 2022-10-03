@@ -23,10 +23,10 @@ zstyle ':z4h:autosuggestions' forward-char     'accept'
 
 # Send these files over to the remote host when connecting over ssh.
 # Multiple files can be listed here.
-zstyle ':z4h:ssh:*'           send-extra-files '~/.iterm2_shell_integration.zsh'
+# zstyle ':z4h:ssh:*'           send-extra-files '~/.iterm2_shell_integration.zsh'
 # Disable automatic teleportation of z4h over ssh when connecting to some-host.
 # This makes `ssh some-host` equivalent to `command ssh some-host`.
-zstyle ':z4h:ssh:some-host'   passthrough      'yes'
+# zstyle ':z4h:ssh:some-host'   passthrough      'yes'
 
 # Move the cursor to the end when Up/Down fetches a command from history?
 zstyle ':zle:up-line-or-beginning-search'   leave-cursor 'yes'

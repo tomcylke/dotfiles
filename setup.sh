@@ -4,3 +4,6 @@ for fileName in .zshrc .zshenv .p10k-8color.zsh .p10k-8color.zsh.zwc .p10k-ascii
   rm ~/$fileName
   ln -s ~/dotfiles/$fileName ~/$fileName
 done
+
+
+echo "Done!"
