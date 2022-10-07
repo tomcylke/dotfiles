@@ -63,7 +63,8 @@ bindkey -v
 path+=('~/bin')
 path+=('/usr/bin')
 path+=('~/.local/share/coursier/bin')
-#
+path+=('~/.local/bin')
+
 # This is just an example that you should delete. It does nothing useful.
 z4h source $Z4H/ohmyzsh/ohmyzsh/lib/diagnostics.zsh
 z4h source $Z4H/ohmyzsh/ohmyzsh/plugins/emoji-clock/emoji-clock.plugin.zsh
