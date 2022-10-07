@@ -62,12 +62,12 @@ bindkey -v
 # Extend PATH.
 path+=('~/bin')
 path+=('/usr/bin')
+path+=('~/.local/share/coursier/bin')
 #
 # This is just an example that you should delete. It does nothing useful.
 z4h source $Z4H/ohmyzsh/ohmyzsh/lib/diagnostics.zsh
 z4h source $Z4H/ohmyzsh/ohmyzsh/plugins/emoji-clock/emoji-clock.plugin.zsh
 fpath+=($Z4H/ohmyzsh/ohmyzsh/plugins/supervisor)
-export PATH="$PATH:/home/thomas/.local/share/coursier/bin"
 
 # Source additional local files if they exist.
 z4h source ~/.iterm2_shell_integration.zsh
@@ -110,7 +110,10 @@ setopt correct_all
 ZSH_THEME="powerlevel10k/powerlevel10k"
 SOLARIZED_THEME="dark"
 
-
+bindkey "^?" backward-delete-char # fix the part where you can't backspace in insert mode
 
 kitty + complete setup zsh | source /dev/stdin
+
+
+
 
