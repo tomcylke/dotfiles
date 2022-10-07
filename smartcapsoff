@@ -1,0 +1,4 @@
+#!/bin/sh
+setxkbmap -option
+killall xcape
+notify-send "Smart caps disabled"
