@@ -63,7 +63,6 @@ bindkey -v
 # Extend PATH.
 path+=('~/bin')
 path+=('/usr/bin')
-path+=('~/.local/share/coursier/bin')
 path+=('~/.local/bin')
 
 # This is just an example that you should delete. It does nothing useful.
