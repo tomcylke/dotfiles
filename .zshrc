@@ -37,7 +37,7 @@ zstyle ':zle:down-line-or-beginning-search' leave-cursor 'yes'
 # This doesn't do anything apart from cloning the repository and keeping it
 # up-to-date. Cloned files can be used after `z4h init`. This is just an
 # example. If you don't plan to use Oh My Zsh, delete this line.
-z4h install ohmyzsh/ohmyzsh || return
+# z4h install ohmyzsh/ohmyzsh || return
 
 # Install or update core components (fzf, zsh-autosuggestions, etc.) and
 # initialize Zsh. After this point console I/O is unavailable until Zsh
@@ -57,6 +57,7 @@ z4h init || return
 export GPG_TTY=$TTY
 export EDITOR='nvim'
 
+# Enable vi mode
 bindkey -v
 
 # Extend PATH.
@@ -66,9 +67,9 @@ path+=('~/.local/share/coursier/bin')
 path+=('~/.local/bin')
 
 # This is just an example that you should delete. It does nothing useful.
-z4h source $Z4H/ohmyzsh/ohmyzsh/lib/diagnostics.zsh
-z4h source $Z4H/ohmyzsh/ohmyzsh/plugins/emoji-clock/emoji-clock.plugin.zsh
-fpath+=($Z4H/ohmyzsh/ohmyzsh/plugins/supervisor)
+# z4h source $Z4H/ohmyzsh/ohmyzsh/lib/diagnostics.zsh
+# z4h source $Z4H/ohmyzsh/ohmyzsh/plugins/emoji-clock/emoji-clock.plugin.zsh
+# fpath+=($Z4H/ohmyzsh/ohmyzsh/plugins/supervisor)
 
 # Source additional local files if they exist.
 z4h source ~/.iterm2_shell_integration.zsh
@@ -80,11 +81,18 @@ z4h bindkey z4h-backward-kill-zword Ctrl+Alt+Backspace
 z4h bindkey undo Ctrl+/  # undo the last command line change
 z4h bindkey redo Alt+/   # redo the last undone command line change
 
-z4h bindkey z4h-cd-back    Alt+Left   # cd into the previous directory
-z4h bindkey z4h-cd-forward Alt+Right  # cd into the next directory
-z4h bindkey z4h-cd-up      Alt+Up     # cd into the parent directory
-z4h bindkey z4h-cd-down    Alt+Down   # cd into a child directory
-
+z4h bindkey z4h-cd-back    Alt+H   # cd into the previous directory
+z4h bindkey z4h-cd-forward Alt+L  # cd into the next directory
+z4h bindkey z4h-cd-up      Alt+K     # cd into the parent directory
+z4h bindkey z4h-cd-down    Alt+J   # cd into a child directory
+bindkey -M vicmd '^[h' z4h-cd-back
+bindkey -M vicmd '^[l' z4h-cd-forward
+bindkey -M vicmd '^[k' z4h-cd-up
+bindkey -M vicmd '^[j' z4h-cd-down
+bindkey -M viins '^[h' z4h-cd-back
+bindkey -M viins '^[l' z4h-cd-forward
+bindkey -M viins '^[k' z4h-cd-up
+bindkey -M viins '^[j' z4h-cd-down
 # Autoload functions.
 autoload -Uz zmv
 
@@ -112,9 +120,4 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 SOLARIZED_THEME="dark"
 
 bindkey "^?" backward-delete-char # fix the part where you can't backspace in insert mode
-
-kitty + complete setup zsh | source /dev/stdin
-
-
-
 
