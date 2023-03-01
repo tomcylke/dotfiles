@@ -32,6 +32,8 @@ zstyle ':z4h:autosuggestions' forward-char     'accept'
 zstyle ':zle:up-line-or-beginning-search'   leave-cursor 'yes'
 zstyle ':zle:down-line-or-beginning-search' leave-cursor 'yes'
 
+if [ "$TMUX" = "" ]; then tmux; fi
+
 # Clone additional Git repositories from GitHub.
 #
 # This doesn't do anything apart from cloning the repository and keeping it
@@ -48,18 +50,19 @@ z4h init || return
 # User configuration
 # Always work in a tmux session if tmux is installed
 
-#if which tmux 2>&1 >/dev/null; then
+# if which tmux 2>&1 >/dev/null; then
 #  if [ $TERM != "screen-256color" ] && [  $TERM != "screen" ]; then
-#    tmux attach -t hack || tmux new -s hack; exit
+#     tmux attach -t hack || tmux new -s hack; exit
 #  fi
-#fi
+# fi
 # Export environment variables.
 export GPG_TTY=$TTY
 export EDITOR='nvim'
 
 # Enable vi mode
-bindkey -v
-
+# bindkey -v
+# Enables non-vi mode
+bindkey -e
 # Extend PATH.
 path+=('~/bin')
 path+=('/usr/bin')
